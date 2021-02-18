@@ -1,5 +1,5 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=ssdev_pet_shop';
+    $dsn = 'mysql:host=localhost;dbname=pet_shop';
     $username = 'root';
     $password = '';
 

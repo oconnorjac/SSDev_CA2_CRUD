@@ -1,6 +1,6 @@
 /*Here is where the body styles start*/
 body {
-    background-color: $richred;
+    background-color: $lightorange;
 }
 
 .container {
@@ -62,18 +62,18 @@ br {
 }
 
 //Forms*/
-#add_record_form {
+#add_product_form {
     margin: .5em 0 1em;
 }
-#add_record_form label {
+#add_product_form label {
     width: 6em;
     padding-right: 1em;
     padding-bottom: .5em;
     float: left;
 }
-#add_record_form input {
+#add_product_form input {
     float: left;
 }
-#add_record_form input[text] {
+#add_product_form input[text] {
     width: 15em;
 }
