@@ -79,7 +79,9 @@ $statement3->closeCursor();
                 <tr>
                     <td><img src="image_uploads/<?php echo $product['image']; ?>" width="100px" height="100px" /></td>
                     <td><?php echo $product['name']; ?></td>
-                    <td class="right"><?php echo $product['price']; ?></td>
+                    <td><?php echo $product['price']; ?></td>
+                    <td><?php echo $product['stock']; ?></td>
+                    <td><?php echo $product['dateAdded']; ?></td>
                     <td>
                         <form action="delete_product.php" method="post" id="delete_product_form">
                             <input type="hidden" name="product_id" value="<?php echo $product['productID']; ?>">

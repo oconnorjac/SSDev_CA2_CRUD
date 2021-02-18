@@ -33,9 +33,14 @@ include('includes/header.php');
                    value="<?php echo $products['name']; ?>">
             <br>
 
-            <label>List Price:</label>
+            <label>Price:</label>
             <input type="input" name="price"
                    value="<?php echo $products['price']; ?>">
+            <br>
+
+            <label>Stock:</label>
+            <input type="input" name="stock"
+                   value="<?php echo $products['stock']; ?>">
             <br>
 
             <label>Image:</label>
