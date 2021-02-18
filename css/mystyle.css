@@ -4,15 +4,13 @@ h1 {
   font-size: 150%;
   margin: 0;
   padding: .5em 0 .25em;
+  color: #333;
 }
 
 h2 {
   font-size: 120%;
   margin: 0;
   padding: .25em 0 .5em;
-}
-
-h1, h2 {
   color: #333;
 }
 
@@ -75,7 +73,7 @@ a {
   font-weight: bold;
 }
 
-a:hover {
+a :hover {
   color: #d08504;
 }
 
@@ -84,7 +82,7 @@ table {
   border-collapse: collapse;
 }
 
-td, th {
+table td, table th {
   border: 1px dashed black;
   padding: .2em .5em .2em .5em;
   vertical-align: top;
@@ -127,7 +125,7 @@ br {
   float: left;
 }
 
-#add_product_form input[text] {
+#add_product_form input [text] {
   width: 15em;
 }
 

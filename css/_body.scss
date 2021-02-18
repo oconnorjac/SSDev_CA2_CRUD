@@ -30,20 +30,22 @@ li {
 a {
     color: rgb(41, 64, 124);
     font-weight: bold;
+    :hover {
+        color: rgb(208, 133, 4);
 }
-a:hover {
-    color: rgb(208, 133, 4);
+
 }
 table {
     border: 1px solid black;
     border-collapse: collapse;
+    td, th {
+        border: 1px dashed black;
+        padding: .2em .5em .2em .5em;
+        vertical-align: top;
+        text-align: left;
+    }
 }
-td, th {
-    border: 1px dashed black;
-    padding: .2em .5em .2em .5em;
-    vertical-align: top;
-    text-align: left;
-}
+
 form {
     margin: 0;
 }
@@ -64,16 +66,16 @@ br {
 //Forms*/
 #add_product_form {
     margin: .5em 0 1em;
-}
-#add_product_form label {
-    width: 6em;
-    padding-right: 1em;
-    padding-bottom: .5em;
-    float: left;
-}
-#add_product_form input {
-    float: left;
-}
-#add_product_form input[text] {
-    width: 15em;
+    label {
+        width: 6em;
+        padding-right: 1em;
+        padding-bottom: .5em;
+        float: left;
+    }
+    input {
+        float: left;
+        [text] {
+            width: 15em;
+        }
+    }
 }
