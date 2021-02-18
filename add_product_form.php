@@ -46,7 +46,7 @@ include('includes/header.php');
             <input type="submit" value="Add Product">
             <br>
         </form>
-        <p><a href="index.php">View Homepage</a></p>
+        <p><a href="index.php">Back to home</a></p>
     <?php
 include('includes/footer.php');
 ?>
