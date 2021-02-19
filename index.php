@@ -45,11 +45,11 @@ $statement3->closeCursor();
     <?php
     include('includes/header.php');
     ?>
-    <h1>Product List</h1>
+    <h1 class="pageTitle">Our Products</h1>
 
     <aside>
         <!-- display a list of categories -->
-        <h2>Categories</h2>
+        <h2></h2>
         <nav>
             <ul>
                 <?php foreach ($categories as $category) : ?>
@@ -58,6 +58,10 @@ $statement3->closeCursor();
                         </a>
                     </li>
                 <?php endforeach; ?>
+                <li><a href="add_product_form.php">Add Product</a></li>
+                <li><a href="category_list.php">Categories</a></li>
+                <li><a href="register_customer_form.php">Register</a></li>
+                <li><a href="view_orders.php">Orders</a></li>
             </ul>
         </nav>
     </aside>
@@ -99,8 +103,6 @@ $statement3->closeCursor();
                 </tr>
             <?php endforeach; ?>
         </table>
-        <p><a href="add_product_form.php">Add Product</a></p>
-        <p><a href="category_list.php">Manage Categories</a></p>
     </section>
     <?php
     include('includes/footer.php');

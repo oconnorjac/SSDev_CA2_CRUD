@@ -3,19 +3,33 @@ header {
     margin: 0;
     border-bottom: 2px solid black;
     h1 {
-        font-size: 30px;
+        font-size: 50px;
         margin: 0;
         padding: .5em 0;
         color: black;
+        font-family: $headerNavFont;
+        text-align: center;
+        a{
+            text-decoration: none;
+            color: #000;
+        }
     }
 }
-nav{
+nav{   
     ul{
         list-style-type: none;
         margin-left: 0;
         padding-left: 0;
         li {
-            padding-bottom: 0.5em;
+            padding-bottom: 1em;
+            height: 50px;
+            text-align: center;
+            font-size: 1.7em;
+            font-family: $headerNavFont;
+        a {
+            text-decoration: none;
+            color: black;
+            }
         }
     }
 }

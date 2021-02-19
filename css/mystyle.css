@@ -1,5 +1,7 @@
 /*Here is where the variables styles start*/
 /*Here is where the fonts styles start*/
+/*Google Fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,300&family=Ribeye&display=swap");
 h1 {
   font-size: 150%;
   margin: 0;
@@ -14,6 +16,10 @@ h2 {
   color: #333;
 }
 
+.pageTitle {
+  text-align: center;
+}
+
 /*Here is where the header styles start*/
 header {
   margin: 0;
@@ -21,10 +27,17 @@ header {
 }
 
 header h1 {
-  font-size: 30px;
+  font-size: 50px;
   margin: 0;
   padding: .5em 0;
   color: black;
+  font-family: "Ribeye", cursive;
+  text-align: center;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: #000;
 }
 
 nav ul {
@@ -34,7 +47,16 @@ nav ul {
 }
 
 nav ul li {
-  padding-bottom: 0.5em;
+  padding-bottom: 1em;
+  height: 50px;
+  text-align: center;
+  font-size: 1.7em;
+  font-family: "Ribeye", cursive;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
 }
 
 /*Here is where the body styles start*/
@@ -44,7 +66,8 @@ body {
 
 .container {
   /* margin-top: 0; */
-  font-family: Arial, Helvetica, sans-serif;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-family: "Raleway", sans-serif;
   width: 1000px;
   margin: 0 auto;
   background-color: white;
@@ -56,6 +79,10 @@ section {
   float: left;
   width: 800PX;
   padding-bottom: 1.5em;
+}
+
+section h2 {
+  font-size: 2em;
 }
 
 ul {
@@ -129,10 +156,19 @@ br {
   width: 15em;
 }
 
+.backToHome {
+  text-decoration: none;
+  color: black;
+}
+
 /*Here is where the sidebar styles start*/
 aside {
   float: left;
-  width: 150px;
+  width: 190px;
+}
+
+aside h2 {
+  text-align: center;
 }
 
 /*Here is where the footer styles start*/

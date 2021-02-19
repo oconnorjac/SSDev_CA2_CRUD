@@ -13,7 +13,7 @@ $statement->closeCursor();
 <?php
 include('includes/header.php');
 ?>
-        <h1>Add Product</h1>
+        <h1 class="pageTitle">Add Product</h1>
         <form action="add_product.php" method="post" enctype="multipart/form-data"
               id="add_product_form">
 
@@ -46,7 +46,7 @@ include('includes/header.php');
             <input type="submit" value="Add Product">
             <br>
         </form>
-        <p><a href="index.php">Back to home</a></p>
     <?php
+include('includes/backToHome.php');
 include('includes/footer.php');
 ?>
