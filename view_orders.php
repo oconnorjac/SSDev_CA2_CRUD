@@ -45,13 +45,13 @@ $statement2->closeCursor();
                     <td><?php echo $order['quantity']; ?></td>
                     <td><?php echo $order['dateOfOrder']; ?></td>
                     <td>
-                        <form action="delete_order.php" method="post" id="delete_order_form">
+                        <form action="delete_order.php" method="post" id="delete_order">
                             <input type="hidden" name="order_id" value="<?php echo $order['orderID']; ?>">
                             <input type="submit" value="Delete">
                         </form>
                     </td>
                     <td>
-                        <form action="edit_order_form.php" method="post" id="delete_order_form">
+                        <form action="edit_order_form.php" method="post" id="delete_order">
                             <input type="hidden" name="order_id" value="<?php echo $order['orderID']; ?>">
                             <input type="submit" value="Edit">
                         </form>

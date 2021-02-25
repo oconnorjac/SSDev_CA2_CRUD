@@ -35,7 +35,7 @@ include('includes/header.php');
 
             <label>Category ID:</label>
             <select name="category_id">
-                <option value="" disabled selected>Choose category</option>
+                <option value="" disabled selected>Choose Category</option>
             <?php foreach ($categories as $category) : ?>
                 <option value="<?php echo $category['categoryID']; ?>" required>
                     <?php echo $category['categoryName']; ?>

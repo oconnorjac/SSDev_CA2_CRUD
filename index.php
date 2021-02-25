@@ -68,7 +68,7 @@ $statement3->closeCursor();
 
     <section>
         <!-- display a table of products -->
-        <h2><?php echo $category_name; ?></h2>
+        <h2 class="pageTitle"><?php echo $category_name; ?></h2>
         <table>
             <tr>
                 <th>Photo</th>
