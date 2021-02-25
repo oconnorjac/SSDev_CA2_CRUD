@@ -19,27 +19,28 @@ include('includes/header.php');
 
             <label>Category:</label>
             <select name="category_id">
+                <option value="" disabled selected>Choose category</option>
             <?php foreach ($categories as $category) : ?>
-                <option value="<?php echo $category['categoryID']; ?>">
+                <option value="<?php echo $category['categoryID']; ?>" required>
                     <?php echo $category['categoryName']; ?>
                 </option>
             <?php endforeach; ?>
             </select>
             <br>
             <label>Name:</label>
-            <input type="input" name="name">
+            <input type="input" name="name" placeholder="Product Name" required>
             <br>
 
-            <label>List Price:</label>
-            <input type="input" name="price">
+            <label>Price:</label>
+            <input type="input" name="price" placeholder="Price" min=0.01 pattern='[0-9]+(\\.[0-9][0-9]?)?' required>
             <br>   
             
             <label>Stock:</label>
-            <input type="input" name="stock">
+            <input type="number" min=0 name="stock" placeholder="Available Stock" required>
             <br> 
             
             <label>Image:</label>
-            <input type="file" name="image" accept="image/*" />
+            <input type="file" name="image" accept="image/*" required />
             <br>
             
             <label>&nbsp;</label>

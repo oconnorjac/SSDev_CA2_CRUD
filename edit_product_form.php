@@ -10,7 +10,17 @@ $statement->bindValue(':product_id', $product_id);
 $statement->execute();
 $products = $statement->fetch(PDO::FETCH_ASSOC);
 $statement->closeCursor();
+
+$query2 = 'SELECT *
+          FROM categories
+          ORDER BY categoryID';
+$statement2 = $db->prepare($query2);
+$statement2->execute();
+$categories = $statement2->fetchAll();
+$statement2->closeCursor();
+
 ?>
+
 <!-- the head section -->
  <div class="container">
 <?php
@@ -24,8 +34,14 @@ include('includes/header.php');
                    value="<?php echo $products['productID']; ?>">
 
             <label>Category ID:</label>
-            <input type="category_id" name="category_id"
-                   value="<?php echo $products['categoryID']; ?>">
+            <select name="category_id">
+                <option value="" disabled selected>Choose category</option>
+            <?php foreach ($categories as $category) : ?>
+                <option value="<?php echo $category['categoryID']; ?>" required>
+                    <?php echo $category['categoryName']; ?>
+                </option>
+            <?php endforeach; ?>
+            </select>
             <br>
 
             <label>Name:</label>

@@ -23,6 +23,7 @@ $statement2->closeCursor();
     include('includes/header.php');
     ?>
     <h1 class="pageTitle">Orders</h1>
+    <h2><a href=add_order_form.php>&#43 Add Order</a></h2>
 
 <section>
         <!-- display a table of orders -->

@@ -52,13 +52,13 @@ $statement3->closeCursor();
         <h2></h2>
         <nav>
             <ul>
+            <li><a href="add_product_form.php">Add Product</a></li>
                 <?php foreach ($categories as $category) : ?>
                     <li><a href=".?category_id=<?php echo $category['categoryID']; ?>">
                             <?php echo $category['categoryName']; ?>
                         </a>
                     </li>
                 <?php endforeach; ?>
-                <li><a href="add_product_form.php">Add Product</a></li>
                 <li><a href="category_list.php">Categories</a></li>
                 <li><a href="register_customer_form.php">Register</a></li>
                 <li><a href="view_orders.php">Orders</a></li>
