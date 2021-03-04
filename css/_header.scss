@@ -16,6 +16,7 @@ header {
     }
 }
 nav{   
+    font-family: $allText;
     ul{
         list-style-type: none;
         margin-left: 0;
@@ -26,7 +27,6 @@ nav{
             text-align: center;
             font-size: 1.7em;
             /*font-family: $headerNavFont;*/
-            font-family: $allText;
         a {
             text-decoration: none;
             color: black;
