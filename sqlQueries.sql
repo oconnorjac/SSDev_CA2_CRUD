@@ -22,4 +22,5 @@ CREATE TABLE orders (
 PRIMARY KEY (orderID),
 FOREIGN KEY (customerID) REFERENCES customers(customerID));
 
+ALTER TABLE orders AUTO_INCREMENT = 1000;
 

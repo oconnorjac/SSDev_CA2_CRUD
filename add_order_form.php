@@ -19,11 +19,11 @@ include('includes/header.php');
 
             <br>Customer must be registered before placing an order
             <label>Customer ID:</label>
-            <input type="input" name="customer_id" placeholder="Customer ID" required>
+            <input type="input" name="customer_id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Customer ID" required>
             <br>   
             
             <label>Product ID:</label>
-            <input type="input" name="product_id" placeholder="Product ID" required>
+            <input type="number" min=0 name="product_id" placeholder="Product ID"  required>
             <br> 
             
             <label>Quantity:</label>

@@ -47,13 +47,13 @@ $statement2->closeCursor();
                     <td>
                         <form action="delete_order.php" method="post" id="delete_order">
                             <input type="hidden" name="order_id" value="<?php echo $order['orderID']; ?>">
-                            <input type="submit" value="Delete">
+                            <input type="submit" value="Delete" class="deleteButton">
                         </form>
                     </td>
                     <td>
                         <form action="edit_order_form.php" method="post" id="delete_order">
                             <input type="hidden" name="order_id" value="<?php echo $order['orderID']; ?>">
-                            <input type="submit" value="Edit">
+                            <input type="submit" value="Edit" class="editButton">
                         </form>
                     </td>
                 </tr>

@@ -6,6 +6,15 @@ $name = filter_input(INPUT_POST, 'name');
 $address = filter_input(INPUT_POST, 'address');
 $telephone = filter_input(INPUT_POST, 'telephone');
 
+require('database.php');
+$query1 = 'SELECT *
+          FROM customers
+          ORDER BY customerID';
+$statement1 = $db1->prepare($query1);
+$statement1->execute();
+$customers = $statement1->fetchAll();
+$statement1->closeCursor();
+
 // Validate inputs
 if ( $email == null || $name == null || $address == null || $telephone == null) 
 {
@@ -13,6 +22,10 @@ if ( $email == null || $name == null || $address == null || $telephone == null)
     include('error.php');
     exit();
 } 
+else if (!$customers->$email)
+{
+    $error = "Customer is not registered."
+}
 else
 {
     require_once('database.php');

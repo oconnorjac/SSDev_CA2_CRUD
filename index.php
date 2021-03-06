@@ -49,7 +49,7 @@ $statement3->closeCursor();
     <aside>
         <nav>
             <ul>
-                <li>Browse</li>
+                <li>Browse By Category</li>
                     <ul>
                         <?php foreach ($categories as $category) : ?>
                             <li><a href=".?category_id=<?php echo $category['categoryID']; ?>">
@@ -58,10 +58,13 @@ $statement3->closeCursor();
                             </li>
                         <?php endforeach; ?>
                     </ul>
-                <li><a href="add_product_form.php">Add Product</a></li>
-                <li><a href="category_list.php">Categories</a></li>
-                <li><a href="register_customer_form.php">Register</a></li>
-                <li><a href="view_orders.php">Orders</a></li>
+                <li>Options</li>
+                    <ul>
+                        <li><a href="add_product_form.php">Add Product</a></li>
+                        <li><a href="category_list.php">Categories</a></li>
+                        <li><a href="register_customer_form.php">Register</a></li>
+                        <li><a href="view_orders.php">Orders</a></li>
+                    </ul>
             </ul>
         </nav>
     </aside>
@@ -92,14 +95,14 @@ $statement3->closeCursor();
                         <form action="delete_product.php" method="post" id="delete_product_form">
                             <input type="hidden" name="product_id" value="<?php echo $product['productID']; ?>">
                             <input type="hidden" name="category_id" value="<?php echo $product['categoryID']; ?>">
-                            <input type="submit" value="Delete">
+                            <input type="submit" value="Delete" class="deleteButton">
                         </form>
                     </td>
                     <td>
                         <form action="edit_product_form.php" method="post" id="delete_product_form">
                             <input type="hidden" name="product_id" value="<?php echo $product['productID']; ?>">
                             <input type="hidden" name="category_id" value="<?php echo $product['categoryID']; ?>">
-                            <input type="submit" value="Edit">
+                            <input type="submit" value="Edit" class="editButton">
                         </form>
                     </td>
                 </tr>
