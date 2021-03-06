@@ -12,19 +12,19 @@ include('includes/header.php');
 
             <br>
             <label>Email:</label>
-            <input type="input" name="email">
+            <input type="input" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
             <br>
 
             <label>Name:</label>
-            <input type="input" name="name">
+            <input type="input" name="name" pattern="^[a-zA-Z'-\s]{0,50}$" required>
             <br>   
             
             <label>Address:</label>
-            <input type="input" name="address">
+            <input type="input" name="address" pattern="^[a-zA-Z0-9-\s]{0,50}$" required>
             <br> 
 
-            <label>Telephone:</label>
-            <input type="input" name="telephone">
+            <label>Mobile:</label>
+            <input type="input" name="telephone" pattern="[0][8][3,5-9][0-9]{7}" required>
             <br> 
             
             <label>&nbsp;</label>

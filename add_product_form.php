@@ -29,7 +29,7 @@ include('includes/header.php');
             
             <br>
             <label>Name:</label>
-            <input type="input" name="name" placeholder="Product Name" required>
+            <input type="input" name="name" placeholder="Product Name" required">
             <br>
 
             <label>Price:</label>

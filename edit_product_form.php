@@ -45,17 +45,17 @@ include('includes/header.php');
             <br>
 
             <label>Name:</label>
-            <input type="input" name="name"
+            <input type="input" name="name" pattern="^[a-zA-Z0-9-\s]{0,50}$" required
                    value="<?php echo $products['name']; ?>">
             <br>
 
             <label>Price:</label>
-            <input type="input" name="price"
+            <input type="input" name="price" min=1 pattern="[0-9]*[.]?[0-9]+" required
                    value="<?php echo $products['price']; ?>">
             <br>
 
             <label>Stock:</label>
-            <input type="input" name="stock"
+            <input type="number" min=0 name="stock" min=0 required
                    value="<?php echo $products['stock']; ?>">
             <br>
 

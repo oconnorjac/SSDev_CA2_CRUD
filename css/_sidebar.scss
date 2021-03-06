@@ -6,3 +6,41 @@ aside {
         text-align: center;
     }
 }
+
+nav{   
+    ul{
+        list-style-type: none;
+        margin-left: 0;
+        padding-left: 0;
+        li {
+            padding-bottom: 1em;
+            height: 20px;
+            width: 100%;
+            text-align: left;
+            font-size: 1.7em;
+            /*font-family: $headerNavFont;*/
+            display: inline-block;
+            ul{
+                display: none;
+            }
+        a {
+            text-decoration: none;
+            color: black;
+            }
+        }
+        
+    }
+}
+
+/*nav ul ul{
+    
+    display: none;
+}*/
+
+/*ul:hover ul{
+
+        position: absolute;
+        display: block;
+        text-align: left;
+
+}*/
