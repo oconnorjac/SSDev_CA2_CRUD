@@ -27,5 +27,5 @@ if ($customer_id == null || $product_id == null || $product_id == false ||
     $statement->closeCursor();
 
     // Display the Product List page
-    include('index.php');
+    include('view_orders.php');
 }

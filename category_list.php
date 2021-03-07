@@ -14,10 +14,10 @@
 <?php
 include('includes/header.php');
 ?>
-    <h1>Category List</h1>
-    <table>
+    <h2>Category List</h2>
+    <table class="cat_table">
         <tr>
-            <th>Name</th>
+            <th>Category</th>
             <th>&nbsp;</th>
         </tr>
         <?php foreach ($categories as $category) : ?>
@@ -28,7 +28,7 @@ include('includes/header.php');
                       id="delete_product_form">
                     <input type="hidden" name="category_id"
                            value="<?php echo $category['categoryID']; ?>">
-                    <input type="submit" value="Delete">
+                    <input type="submit" value="Delete" class="deleteButton">
                 </form>
             </td>
         </tr>
@@ -36,11 +36,9 @@ include('includes/header.php');
     </table>
     <br>
 
-    <h2>Add Category</h2>
+    <h3>Add Category</h3>
     <form action="add_category.php" method="post"
-          id="add_category_form">
-
-        <label>Name:</label>
+          id="add_product_form">
         <input type="input" name="name">
         <input id="add_category_button" type="submit" value="Add">
     </form>

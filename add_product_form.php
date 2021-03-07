@@ -29,7 +29,7 @@ include('includes/header.php');
             
             <br>
             <label>Name:</label>
-            <input type="input" name="name" placeholder="Product Name" required">
+            <input type="input" name="name" placeholder="Product Name" pattern="^[a-zA-Z0-9-\s\&]{0,50}$" required">
             <br>
 
             <label>Price:</label>

@@ -45,7 +45,7 @@ include('includes/header.php');
             <br>
 
             <label>Name:</label>
-            <input type="input" name="name" pattern="^[a-zA-Z0-9-\s]{0,50}$" required
+            <input type="input" name="name" pattern="^[a-zA-Z0-9-\s\&]{0,50}$" required
                    value="<?php echo $products['name']; ?>">
             <br>
 

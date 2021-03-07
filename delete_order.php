@@ -14,5 +14,5 @@ if ($order_id != false) {
     $statement->closeCursor();
 }
 
-// display the Product List page
-include('index.php');
+// display the orders page
+include('view_orders.php');

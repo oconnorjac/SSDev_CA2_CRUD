@@ -20,7 +20,7 @@ include('includes/header.php');
             <br>   
             
             <label>Address:</label>
-            <input type="input" name="address" pattern="^[a-zA-Z0-9-\s]{0,50}$" required>
+            <input type="input" name="address" pattern="^[a-zA-Z0-9-\s,]{0,50}$" required>
             <br> 
 
             <label>Mobile:</label>

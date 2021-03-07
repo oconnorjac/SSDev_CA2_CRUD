@@ -46,21 +46,22 @@ a {
 }
 table {
     border: 1px solid black;
+    border-radius: 20%;
     border-collapse: collapse;
     td, th {
+        font-size: 1.2em;
         border: 1px dashed black;
         padding: .2em .5em .2em .5em;
         vertical-align: top;
-        text-align: left;
+        text-align: center;
+        tr:nth-child(odd){
+            background-color: grey;
+        }
     }
+    
 }
 
-form {
-    margin: 0;
-}
-br {
-    clear: left;
-}
+
 /* the styles for classes */
 .right {
     text-align: right;
@@ -74,7 +75,10 @@ br {
 .deleteButton, .editButton{
     padding: 15px;
     border-radius: 15px;
-    height: 60px;
+    height: 100%;
+    width: 100%;
+    font-size: 1em;
+    margin: auto;
 }
 .deleteButton{
     background-color: $deleteButton;
@@ -82,9 +86,17 @@ br {
 .editButton{
     background-color: $editButton;
 }
+.backToHome{
+    text-decoration: none;
+    color: black;
+}
+
 
 
 /*Forms*/
+form {
+    margin: 0;
+}
 #add_product_form {
     margin: .5em 0 1em;
     label {
@@ -100,12 +112,16 @@ br {
         }
     }
 }
+.cat_table{
 
-.backToHome{
-    text-decoration: none;
-    color: black;
+    margin: 0 auto;
+    width: 300px;
+
 }
 
 img{
     border-radius: 50px;
+}
+br {
+    clear: left;
 }

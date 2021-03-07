@@ -69,8 +69,6 @@ $statement3->closeCursor();
         </nav>
     </aside>
 
-    <h1 class="pageTitle">Our Products</h1>
-
     <section>
         <!-- display a table of products -->
         <h2 class="pageTitle"><?php echo $category_name; ?></h2>
