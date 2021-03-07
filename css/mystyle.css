@@ -103,15 +103,18 @@ a :hover {
 
 table {
   border: 1px solid black;
-  border-radius: 20%;
   border-collapse: collapse;
+}
+
+table tr:hover {
+  background-color: #f5f5f5;
 }
 
 table td, table th {
   font-size: 1.2em;
-  border: 1px dashed black;
+  border: 1px solid black;
   padding: .2em .5em .2em .5em;
-  vertical-align: top;
+  vertical-align: middle;
   text-align: center;
 }
 

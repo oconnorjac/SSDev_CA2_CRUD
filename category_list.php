@@ -9,6 +9,7 @@
     $categories = $statement->fetchAll();
     $statement->closeCursor();
 ?>
+
 <!-- the head section -->
 <div class="container">
 <?php
@@ -39,7 +40,7 @@ include('includes/header.php');
     <h3>Add Category</h3>
     <form action="add_category.php" method="post"
           id="add_product_form">
-        <input type="input" name="name">
+        <input type="input" name="name" pattern="^[a-zA-Z0-9-\s\&]{0,50}$">
         <input id="add_category_button" type="submit" value="Add">
     </form>
     <br>
