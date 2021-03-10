@@ -1,4 +1,4 @@
-# A PHP and SQL CRUD application - **_Pet Supplier WackyBone_**
+# A PHP and SQL CRUD application - **_Pet Shop WackyBone_**
 
 ## About this project...
 This repository hosts a working secure **CRUD** (Create, Read, Update and Delete) application using **PHP** and connected to a **MySQL** database using a **PDO** connection. 
