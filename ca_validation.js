@@ -24,6 +24,8 @@ function custid_validation()
     }
 }
 
+
+
 function name_validation() {
     'use strict';
     var custName_name = document.getElementById("name");
