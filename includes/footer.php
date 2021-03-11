@@ -4,4 +4,6 @@
 </div><!-- close div container -->
 </body>
 
+<script src="ca_validation.js"></script>
+
 </html>

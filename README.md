@@ -16,8 +16,8 @@ This project is a dynamic data-driven web application using **server-side script
 ## Instructions on how to set WackyBone up on your machine
 * Create a **MySQL** database using the code in the _data-for-your-database.sql_ file.
 * Move the **PHP** to the **htdocs** folder in your **C: drive** _(as stated above)_
-* Configure the _database.php_ 
-* Make sure you have correct database **name**, **username** and **password**. 
+* Configure the _database.php_ file.
+* Meaning sure you have correct database **name**, **username** and **password**. 
 * For **Mac** users, change the password to root.
 ***
 

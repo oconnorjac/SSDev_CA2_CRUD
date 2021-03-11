@@ -17,17 +17,20 @@ include('includes/header.php');
         <form action="add_order.php" method="post" enctype="multipart/form-data"
               id="add_product_form">
 
-            <br>Customer must be registered before placing an order
+            <br>Customer must be registered before placing an order<br><br>
             <label>Customer ID:</label>
-            <input type="input" name="customer_id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Customer ID" required>
+            <input type="input" name="customer_id" id="custid" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Customer ID" required onkeypress="custid_validation();">
+            <span id="custid_message"></span>
             <br>   
             
             <label>Product ID:</label>
-            <input type="number" min=0 name="product_id" placeholder="Product ID"  required>
+            <input type="number" min=0 name="product_id" placeholder="Product ID"  required onkeypress="number_valdation();">
+            <span id="num_message"></span>
             <br> 
             
             <label>Quantity:</label>
-            <input type="number" min=0 name="quantity" placeholder="Quantity" required>
+            <input type="number" min=0 name="quantity" placeholder="Quantity" required onkeypress="number_valdation();">
+            <span id="num_message"></span>
             <br>
             
             <label>&nbsp;</label>

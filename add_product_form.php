@@ -29,15 +29,18 @@ include('includes/header.php');
             
             <br>
             <label>Name:</label>
-            <input type="input" name="name" placeholder="Product Name" pattern="^[a-zA-Z0-9-\s\&]{0,50}$" required">
+            <input type="input" name="name" id="name" placeholder="Product Name" pattern="^[a-zA-Z0-9-\s\&]{0,50}$" required onkeypress="name_validation();">
+            <span id="name_message"></span>
             <br>
 
             <label>Price:</label>
-            <input type="input" name="price" placeholder="Price" min=1 pattern="[0-9]*[.]?[0-9]+" required>
+            <input type="input" name="price" id="price" placeholder="Price" min=1 pattern="[0-9]*[.]?[0-9]+" required onkeypress="price_valdation();">
+            <span id="price_message"></span>
             <br>   
             
             <label>Stock:</label>
-            <input type="number" min=0 name="stock" placeholder="Available Stock" required>
+            <input type="number" min=0 name="stock" id="num" placeholder="Available Stock" required onkeypress="number_valdation();">
+            <span id="num_message"></span>
             <br> 
             
             <label>Image:</label>

@@ -12,19 +12,23 @@ include('includes/header.php');
 
             <br>
             <label>Email:</label>
-            <input type="input" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+            <input type="input" name="email" id="custid" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required onkeypress="custid_validation();">
+            <span id="custid_message"></span>
             <br>
 
             <label>Name:</label>
-            <input type="input" name="name" pattern="^[a-zA-Z'-\s]{0,50}$" required>
+            <input type="input" name="name" id="name" pattern="^[a-zA-Z'-\s]{0,50}$" required onkeypress="name_validation();">
+            <span id="name_message"></span>
             <br>   
             
             <label>Address:</label>
-            <input type="input" name="address" pattern="^[a-zA-Z0-9-\s,]{0,50}$" required>
+            <input type="input" name="address" id="address" pattern="^[a-zA-Z0-9-\s,]{0,50}$" required onkeypress="address_validation()">
+            <span id="address_message"></span>
             <br> 
 
             <label>Mobile:</label>
-            <input type="input" name="telephone" pattern="[0][8][3,5-9][0-9]{7}" required>
+            <input type="input" name="telephone" id="mobile" pattern="[0][8][3,5-9][0-9]{7}" required onkeypress="mobileNum_valdation()">
+            <span id="mobile_message"></span>
             <br> 
             
             <label>&nbsp;</label>
