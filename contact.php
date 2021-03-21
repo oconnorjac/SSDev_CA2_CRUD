@@ -14,6 +14,10 @@ include('includes/header.php');
 			<input type="text" name="email"> <br>
 		</p>
 		<p>
+			<label for='mobile'>Mobile:</label> <br>
+			<input type="text" name="mobile"> <br>
+		</p>
+		<p>
 			<label for='message'>Message:</label> <br>
 			<textarea name="message"></textarea>
 		</p>

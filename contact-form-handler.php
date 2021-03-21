@@ -4,7 +4,7 @@ $myemail = 'D00233669@student.dkit.ie'; //<-----Put your DkIT email address here
 if (
 	empty($_POST['name'])  ||
 	empty($_POST['email']) ||
-	empty($_POST['mobile'])
+	empty($_POST['mobile']) ||
 	empty($_POST['message'])
 ) {
 	$errors .= "\n Error: all fields are required";
@@ -37,23 +37,18 @@ if (empty($errors)) {
 
 	mail($to, $email_subject, $email_body, $headers);
 	//redirect to the 'thank you' page
-	header('Location: contact-form-thank-you.html');
+	header('Location: contact-form-thank-you.php');
 }
 ?>
-<!DOCTYPE HTML>
-<html>
-
-<head>
-	<title>Contact form handler</title>
-</head>
-
-<body>
+<div class="container">
+	<?php
+	include('includes/header.php');
+	?>
 	<!-- This page is displayed only if there is some error -->
 	<?php
 	echo nl2br($errors);
 	?>
-
-
-</body>
-
-</html>
+	<?php
+	include('includes/backToHome.php');
+	include('includes/footer.php');
+	?>
