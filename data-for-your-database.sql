@@ -1,40 +1,9 @@
--- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Generation Time: Mar 12, 2021 at 11:29 AM
--- Server version: 10.1.48-MariaDB-0+deb9u1
--- PHP Version: 7.0.33-0+deb9u10
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `D00233669`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `categories`
---
-
+/*categories*/
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
-  `categoryID` int(11) NOT NULL,
-  `categoryName` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `categories`
---
+  `categoryID` int(11) NOT NULL AUTO_INCREMENT,
+  `categoryName` varchar(255) NOT NULL,
+PRIMARY KEY (categoryID));
 
 INSERT INTO `categories` (`categoryID`, `categoryName`) VALUES
 (1, 'Dog'),
@@ -44,81 +13,20 @@ INSERT INTO `categories` (`categoryID`, `categoryName`) VALUES
 (5, 'Fish'),
 (6, 'Bird'),
 (7, 'Reptile');
+ALTER TABLE categories AUTO_INCREMENT=8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `customers`
---
-
-DROP TABLE IF EXISTS `customers`;
-CREATE TABLE `customers` (
-  `customerID` varchar(60) NOT NULL,
-  `customerName` varchar(60) DEFAULT NULL,
-  `customerAddress` varchar(60) DEFAULT NULL,
-  `customerTel` varchar(60) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `customers`
---
-
-INSERT INTO `customers` (`customerID`, `customerName`, `customerAddress`, `customerTel`) VALUES
-('anne@gmail.com', 'Anne', '3 New Road, Drogheda', '0419858545'),
-('jac@email.com', 'Jacqueline', '7 The Close', '0852525252'),
-('jack@gmail.com', 'Jack', '2 New Street, Dublin', '018745882'),
-('joe@gmail.com', 'Joe', '4 UpTown, Navan', '041898556'),
-('paddy@gmail.com', 'Paddy', '5 Grove Road, Dundalk', '042985855'),
-('testing9@gmail.com', 'testingg', 'testing 4 u', '0872525254'),
-('tom@gmail.com', 'Tom', '1 Old Road, Dundalk', '0429858585');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `orders`
---
-
-DROP TABLE IF EXISTS `orders`;
-CREATE TABLE `orders` (
-  `orderID` int(11) NOT NULL,
-  `customerID` varchar(60) DEFAULT NULL,
-  `productID` int(11) DEFAULT NULL,
-  `quantity` int(100) DEFAULT NULL,
-  `dateOfOrder` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`orderID`, `customerID`, `productID`, `quantity`, `dateOfOrder`) VALUES
-(1001, 'anne@gmail.com', 36, 32, '2021-03-06 15:29:35'),
-(1007, 'test2@gmail.com', 36, 32, '2021-03-07 15:31:39'),
-(1008, 'rob_12@email.com', 50, 1, '2021-03-10 16:27:31'),
-(1009, 'tom@gmail.com', 45, 6, '2021-03-10 17:56:25'),
-(1010, 'jac@email.com', 37, 8, '2021-03-10 16:00:01'),
-(1013, 'joe@gmail.com', 32, 21, '2021-03-12 11:12:42');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `products`
---
-
+/*products*/
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
-  `productID` int(11) NOT NULL,
+  `productID` int(11) NOT NULL AUTO_INCREMENT,
   `categoryID` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `stock` int(11) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `products`
---
+  `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (productID),
+FOREIGN KEY (categoryID) REFERENCES categories(categoryID));
 
 INSERT INTO `products` (`productID`, `categoryID`, `name`, `price`, `stock`, `image`, `dateAdded`) VALUES
 (27, 1, 'Tennis Ball Toy', '12.99', 7, '216982.jpg', '2021-02-19 11:21:45'),
@@ -159,55 +67,43 @@ INSERT INTO `products` (`productID`, `categoryID`, `name`, `price`, `stock`, `im
 (62, 7, 'Bedding', '13.99', 18, '9476.jpg', '2021-02-19 00:00:00'),
 (63, 7, 'Food Bowl', '6.99', 9, '19909.jpg', '2021-02-19 00:00:00'),
 (64, 7, 'Water Bowl', '6.99', 18, '341961.jpg', '2021-02-19 00:00:00');
+ALTER TABLE productID AUTO_INCREMENT=65;
 
---
--- Indexes for dumped tables
---
+/*customers*/
+DROP TABLE IF EXISTS `customers`;
+CREATE TABLE `customers` (
+  `customerID` varchar(60) NOT NULL,
+  `customerName` varchar(60) DEFAULT NULL,
+  `customerAddress` varchar(60) DEFAULT NULL,
+  `customerTel` varchar(60) DEFAULT NULL,
+PRIMARY KEY (customerID));
 
---
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`categoryID`);
+INSERT INTO `customers` (`customerID`, `customerName`, `customerAddress`, `customerTel`) VALUES
+('anne@gmail.com', 'Anne', '3 New Road, Drogheda', '0419858545'),
+('jac@email.com', 'Jacqueline', '7 The Close', '0852525252'),
+('jack@gmail.com', 'Jack', '2 New Street, Dublin', '018745882'),
+('joe@gmail.com', 'Joe', '4 UpTown, Navan', '041898556'),
+('paddy@gmail.com', 'Paddy', '5 Grove Road, Dundalk', '042985855'),
+('testing9@gmail.com', 'testingg', 'testing 4 u', '0872525254'),
+('tom@gmail.com', 'Tom', '1 Old Road, Dundalk', '0429858585');
 
---
--- Indexes for table `customers`
---
-ALTER TABLE `customers`
-  ADD PRIMARY KEY (`customerID`);
+/*orders*/
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `orderID` int(11) NOT NULL AUTO_INCREMENT,
+  `customerID` varchar(60) DEFAULT NULL,
+  `productID` int(11) DEFAULT NULL,
+  `quantity` int(100) DEFAULT NULL,
+  `dateOfOrder` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (orderID),
+FOREIGN KEY (customerID) REFERENCES customers(customerID),
+FOREIGN KEY (productID) REFERENCES products(productID));
 
---
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`orderID`),
-  ADD KEY `customerID` (`customerID`);
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`productID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1014;
---
--- AUTO_INCREMENT for table `products`
---
-ALTER TABLE `products`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+INSERT INTO `orders` (`orderID`, `customerID`, `productID`, `quantity`, `dateOfOrder`) VALUES
+(1001, 'anne@gmail.com', 36, 32, '2021-03-06 15:29:35'),
+(1007, 'test2@gmail.com', 36, 32, '2021-03-07 15:31:39'),
+(1008, 'rob_12@email.com', 50, 1, '2021-03-10 16:27:31'),
+(1009, 'tom@gmail.com', 45, 6, '2021-03-10 17:56:25'),
+(1010, 'jac@email.com', 37, 8, '2021-03-10 16:00:01'),
+(1013, 'joe@gmail.com', 32, 21, '2021-03-12 11:12:42');
+ALTER TABLE orders AUTO_INCREMENT=1014;
