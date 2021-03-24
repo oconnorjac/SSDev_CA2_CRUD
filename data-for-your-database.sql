@@ -1,3 +1,8 @@
+/*create database*/
+DROP DATABASE IF EXISTS pet_shop;
+CREATE DATABASE IF NOT EXISTS pet_shop;
+USE pet_shop;
+
 /*categories*/
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
@@ -67,7 +72,7 @@ INSERT INTO `products` (`productID`, `categoryID`, `name`, `price`, `stock`, `im
 (62, 7, 'Bedding', '13.99', 18, '9476.jpg', '2021-02-19 00:00:00'),
 (63, 7, 'Food Bowl', '6.99', 9, '19909.jpg', '2021-02-19 00:00:00'),
 (64, 7, 'Water Bowl', '6.99', 18, '341961.jpg', '2021-02-19 00:00:00');
-ALTER TABLE productID AUTO_INCREMENT=65;
+ALTER TABLE products AUTO_INCREMENT=65;
 
 /*customers*/
 DROP TABLE IF EXISTS `customers`;
@@ -101,8 +106,8 @@ FOREIGN KEY (productID) REFERENCES products(productID));
 
 INSERT INTO `orders` (`orderID`, `customerID`, `productID`, `quantity`, `dateOfOrder`) VALUES
 (1001, 'anne@gmail.com', 36, 32, '2021-03-06 15:29:35'),
-(1007, 'test2@gmail.com', 36, 32, '2021-03-07 15:31:39'),
-(1008, 'rob_12@email.com', 50, 1, '2021-03-10 16:27:31'),
+(1007, 'testing9@gmail.com', 36, 32, '2021-03-07 15:31:39'),
+(1008, 'jack@gmail.com', 50, 1, '2021-03-10 16:27:31'),
 (1009, 'tom@gmail.com', 45, 6, '2021-03-10 17:56:25'),
 (1010, 'jac@email.com', 37, 8, '2021-03-10 16:00:01'),
 (1013, 'joe@gmail.com', 32, 21, '2021-03-12 11:12:42');
