@@ -1,9 +1,15 @@
 /*Here is where the variables styles start*/
 /*colours*/
 /*Buttons*/
+/*To use in ca_validation.js*/
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,300&family=Ribeye&display=swap");
+:export {
+  validGreen: #00AF33;
+  invalidRed: #FF0000;
+}
+
 /*Here is where the fonts styles start*/
 /*Google Fonts*/
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,300&family=Ribeye&display=swap");
 h1 {
   font-size: 150%;
   margin: 0;
@@ -21,6 +27,7 @@ h2 {
 
 .pageTitle {
   text-align: center;
+  padding-top: 1em;
 }
 
 ul {
@@ -47,6 +54,30 @@ header h1 {
 header h1 a {
   text-decoration: none;
   color: #000;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #41B3A3;
+  color: black;
 }
 
 /*Here is where the body styles start*/
@@ -159,7 +190,7 @@ table td tr:nth-child(odd), table th tr:nth-child(odd) {
 
 /*Forms*/
 form {
-  margin: 0;
+  margin: 0 auto;
 }
 
 #add_product_form {
@@ -183,7 +214,7 @@ form {
 
 .cat_table {
   margin: 0 auto;
-  width: 300px;
+  /*width: 300px;*/
 }
 
 img {
@@ -192,6 +223,10 @@ img {
 
 br {
   clear: left;
+}
+
+span {
+  padding-left: 5px;
 }
 
 /*Here is where the sidebar styles start*/
@@ -215,8 +250,7 @@ nav ul {
 }
 
 nav ul li {
-  padding-bottom: 1em;
-  padding-left: 1em;
+  padding: 1em;
   height: 20px;
   text-align: left;
   font-size: 1.7em;

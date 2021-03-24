@@ -50,21 +50,14 @@ $statement3->closeCursor();
         <nav>
             <ul>
                 <li>Browse By Category</li>
-                    <ul>
-                        <?php foreach ($categories as $category) : ?>
-                            <li><a href=".?category_id=<?php echo $category['categoryID']; ?>">
-                                    <?php echo $category['categoryName']; ?>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                <li>Options</li>
-                    <ul>
-                        <li><a href="add_product_form.php">Add Product</a></li>
-                        <li><a href="category_list.php">Categories</a></li>
-                        <li><a href="register_customer_form.php">Register</a></li>
-                        <li><a href="view_orders.php">Orders</a></li>
-                    </ul>
+                <ul>
+                    <?php foreach ($categories as $category) : ?>
+                        <li><a href=".?category_id=<?php echo $category['categoryID']; ?>">
+                                <?php echo $category['categoryName']; ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </ul>
         </nav>
     </aside>
@@ -90,7 +83,7 @@ $statement3->closeCursor();
                     <td><?php echo $product['stock']; ?></td>
                     <td><?php echo $product['dateAdded']; ?></td>
                     <td>
-                    <form action="delete_product.php" method="post" id="delete_product_form">
+                        <form action="delete_product.php" method="post" id="delete_product_form">
                             <input type="hidden" name="product_id" value="<?php echo $product['productID']; ?>">
                             <input type="hidden" name="category_id" value="<?php echo $product['categoryID']; ?>">
                             <input type="submit" value="Delete" class="deleteButton">

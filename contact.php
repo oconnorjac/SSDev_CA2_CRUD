@@ -3,7 +3,7 @@
 <?php
 include('includes/header.php');
 ?>
-	<h1>Contact us</h1>
+	<h1 class="pageTitle">Contact us</h1>
 	<form method="POST" name="contactform" action="contact-form-handler.php">
 		<p>
 			<label for='name'>Your Name:</label> <br>
@@ -23,6 +23,13 @@ include('includes/header.php');
 		</p>
 		<input type="submit" value="Submit"><br>
 	</form>
+
+	<script language="JavaScript">
+		var frmvalidator = new Validator("contactform");
+		frmvalidator.addValidation("name", "req", "Please provide your name");
+		frmvalidator.addValidation("email", "req", "Please provide your email");
+		frmvalidator.addValidation("email", "email", "Please enter a valid email address");
+	</script>
 
     <?php
 include('includes/backToHome.php');

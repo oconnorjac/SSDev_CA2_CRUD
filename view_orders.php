@@ -27,7 +27,7 @@ $statement2->closeCursor();
 
 <section>
         <!-- display a table of orders -->
-        <table>
+        <table class="cat_table">
             <tr>
                 <th>Order ID</th>
                 <th>Customer</th>

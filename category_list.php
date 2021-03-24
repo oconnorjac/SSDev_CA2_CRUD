@@ -15,7 +15,7 @@
 <?php
 include('includes/header.php');
 ?>
-    <h2>Category List</h2>
+    <h1 class="pageTitle">Category List</h1>
     <table class="cat_table">
         <tr>
             <th>Category</th>
