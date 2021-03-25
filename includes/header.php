@@ -16,8 +16,10 @@
             <a class="active" href="index.php">Home</a>
             <a href="add_product_form.php">Add Product</a>
             <a href="category_list.php">Categories</a>
-            <a href="register_customer_form.php">Register</a>
             <a href="view_orders.php">Orders</a>
             <a href="contact.php">Contact</a>
+            <a href="register_customer_form.php">Register</a>
+            <a href="#Login">Login</a>
+            <a href="#Logout">Logout</a>
         </div>
     </header>
