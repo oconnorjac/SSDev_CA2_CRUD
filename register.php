@@ -23,8 +23,11 @@ require 'login_connect.php';
 if(isset($_POST['register'])){
     
     //Retrieve the field values from our registration form.
-    $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
-    $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
+    $customerID = !empty($_POST['customerID']) ? trim($_POST['customerID']) : null;
+    $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
+    $name = !empty($_POST['name']) ? trim($_POST['name']) : null;
+    $address = !empty($_POST['address']) ? trim($_POST['address']) : null;
+    $mobile = !empty($_POST['mobile']) ? trim($_POST['mobile']) : null;
     
     //TO ADD: Error checking (username characters, password length, etc).
     //Basically, you will need to add your own error checking BEFORE
@@ -33,11 +36,11 @@ if(isset($_POST['register'])){
     //Now, we need to check if the supplied username already exists.
     
     //Construct the SQL statement and prepare it.
-    $sql = "SELECT COUNT(username) AS num FROM users WHERE username = :username";
+    $sql = "SELECT COUNT(customerID) AS num FROM customers WHERE customerID = :customerID";
     $stmt = $pdo->prepare($sql);
     
     //Bind the provided username to our prepared statement.
-    $stmt->bindValue(':username', $username);
+    $stmt->bindValue(':customerID', $customerID);
     
     //Execute.
     $stmt->execute();
@@ -54,16 +57,19 @@ if(isset($_POST['register'])){
     }
     
     //Hash the password as we do NOT want to store our passwords in plain text.
-    $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array("cost" => 12));
+    $passwordHash = password_hash($password, PASSWORD_BCRYPT, array("cost" => 12));
     
     //Prepare our INSERT statement.
     //Remember: We are inserting a new row into our users table.
-    $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+    $sql = "INSERT INTO customers (customerID, password, customerName, customerAddress, customerTel) VALUES (:customerID, :password, :name, :address, :mobile)";
     $stmt = $pdo->prepare($sql);
     
     //Bind our variables.
-    $stmt->bindValue(':username', $username);
+    $stmt->bindValue(':customerID', $customerID);
     $stmt->bindValue(':password', $passwordHash);
+    $stmt->bindValue(':name', $name);
+    $stmt->bindValue(':address', $address);
+    $stmt->bindValue(':mobile', $mobile);
 
     //Execute the statement and insert the new account.
     $result = $stmt->execute();
@@ -89,7 +95,7 @@ include('includes/header.php');
 
             <br>
             <label>Email:</label>
-            <input type="input" name="email" id="custid" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required onkeypress="custid_validation();">
+            <input type="input" name="email" id="customerID" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required onkeypress="custid_validation();">
             <span id="custid_message"></span>
             <br>
 
@@ -109,7 +115,8 @@ include('includes/header.php');
             <br> 
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password"><br>
+            <input type="password" id="password" name="password" required>
+            <br>
             
             <label>&nbsp;</label>
             <input type="submit" name="register" value="Register">

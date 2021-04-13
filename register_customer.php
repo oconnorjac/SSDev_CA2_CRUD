@@ -2,6 +2,7 @@
 
 // Get the customer data
 $email = filter_input(INPUT_POST, 'email');
+$password = filter_input(INPUT_POST, 'password');
 $name = filter_input(INPUT_POST, 'name');
 $address = filter_input(INPUT_POST, 'address');
 $telephone = filter_input(INPUT_POST, 'telephone');
@@ -16,7 +17,7 @@ $customers = $statement1->fetchAll();
 $statement1->closeCursor();
 
 // Validate inputs
-if ( $email == null || $name == null || $address == null || $telephone == null) 
+if ( $email == null || $password == null || $name == null || $address == null || $telephone == null) 
 {
     $error = "Invalid data. Check all fields and try again.";
     include('error.php');
@@ -32,12 +33,13 @@ else
 
     // Add the customer to the database 
     $query = "INSERT INTO customers
-                 (customerID, customerName, 
+                 (customerID, password, customerName, 
                  customerAddress, customerTel)
               VALUES
                  (:email, :name, :address, :telephone)";
     $statement = $db->prepare($query);
     $statement->bindValue(':email', $email);
+    $statement->bindValue(':password', $password);
     $statement->bindValue(':name', $name);
     $statement->bindValue(':address', $address);
     $statement->bindValue(':telephone', $telephone);

@@ -1,26 +1,5 @@
 <?php
 
-/**
- * Start the session.
- */
-session_start();
-
-/**
- * Check if the user is logged in.
- */
-if(!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])){
-    //User not logged in. Redirect them back to the login.php page.
-    header('Location: login.php');
-    exit;
-}
-
-
-/**
- * Print out something that only logged in users can see.
- */
-
-echo 'Congratulations! You are logged in!';
-
 require_once('database.php');
 
 // Get category ID
@@ -74,7 +53,7 @@ $statement3->closeCursor();
                 <li>Browse By Category</li>
                 <ul>
                     <?php foreach ($categories as $category) : ?>
-                        <li><a href=".?category_id=<?php echo $category['categoryID']; ?>">
+                        <li><a href="?category_id=<?php echo $category['categoryID']; ?>">
                                 <?php echo $category['categoryName']; ?>
                             </a>
                         </li>
@@ -94,8 +73,7 @@ $statement3->closeCursor();
                 <th>Price</th>
                 <th>Stock</th>
                 <th>DateAdded</th>
-                <th>Delete</th>
-                <th>Edit</th>
+                <th>Buy</th>
             </tr>
             <?php foreach ($products as $product) : ?>
                 <tr>
@@ -105,17 +83,10 @@ $statement3->closeCursor();
                     <td><?php echo $product['stock']; ?></td>
                     <td><?php echo $product['dateAdded']; ?></td>
                     <td>
-                        <form action="delete_product.php" method="post" id="delete_product_form">
+                        <form action="buy_product.php" method="post" id="delete_product_form">
                             <input type="hidden" name="product_id" value="<?php echo $product['productID']; ?>">
                             <input type="hidden" name="category_id" value="<?php echo $product['categoryID']; ?>">
-                            <input type="submit" value="Delete" class="deleteButton">
-                        </form>
-                    </td>
-                    <td>
-                        <form action="edit_product_form.php" method="post" id="delete_product_form">
-                            <input type="hidden" name="product_id" value="<?php echo $product['productID']; ?>">
-                            <input type="hidden" name="category_id" value="<?php echo $product['categoryID']; ?>">
-                            <input type="submit" value="Edit" class="editButton">
+                            <input type="checkbox" value="checkbox">
                         </form>
                     </td>
                 </tr>

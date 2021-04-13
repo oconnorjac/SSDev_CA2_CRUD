@@ -24,15 +24,15 @@ require 'login_connect.php';
 if (isset($_POST['login'])) {
 
     //Retrieve the field values from our login form.
-    $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
+    $email = !empty($_POST['customerID,']) ? trim($_POST['customerID']) : null;
     $passwordAttempt = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
     //Retrieve the user account information for the given username.
-    $sql = "SELECT id, username, password FROM users WHERE username = :username";
+    $sql = "SELECT customerID, password FROM customers WHERE customerID = :email";
     $stmt = $pdo->prepare($sql);
 
     //Bind value.
-    $stmt->bindValue(':username', $username);
+    $stmt->bindValue(':email', $email);
 
     //Execute.
     $stmt->execute();
@@ -44,7 +44,7 @@ if (isset($_POST['login'])) {
     if ($user === false) {
         //Could not find a user with that username!
         //PS: You might want to handle this error in a more user-friendly manner!
-        die('Incorrect username / password combination!');
+        die('Incorrect username !');
     } else {
         //User account found. Check to see if the given password matches the
         //password hash that we stored in our users table.
@@ -56,7 +56,7 @@ if (isset($_POST['login'])) {
         if ($validPassword) {
 
             //Provide the user with a login session.
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['customerID'] = $user['customerID'];
             $_SESSION['logged_in'] = time();
 
             //Redirect to our protected page, which we called home.php
@@ -64,7 +64,8 @@ if (isset($_POST['login'])) {
             exit;
         } else {
             //$validPassword was FALSE. Passwords do not match.
-            die('Incorrect username / password combination!');
+            die('Incorrect password !');
+            exit();
         }
     }
 }
@@ -81,7 +82,7 @@ if (isset($_POST['login'])) {
     <form action="login.php" method="post" class="loginOut">
 
         <label>Email:</label>
-        <input type="input" name="email" id="custid" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+        <input type="input" name="email" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
 
         <label for="password">Password</label>
         <input type="password" id="password" name="password">
