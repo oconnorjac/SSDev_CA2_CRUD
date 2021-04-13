@@ -34,6 +34,17 @@ ul {
   font-family: "Raleway", sans-serif;
 }
 
+a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.outputMessages {
+  text-align: center;
+  font-size: 2em;
+}
+
 /*Here is where the header styles start*/
 header {
   margin: 0;
@@ -123,15 +134,6 @@ li {
   padding: 0;
 }
 
-a {
-  color: #29407c;
-  font-weight: bold;
-}
-
-a :hover {
-  color: #d08504;
-}
-
 table {
   border: 1px solid black;
   border-collapse: collapse;
@@ -186,6 +188,11 @@ table td tr:nth-child(odd), table th tr:nth-child(odd) {
 .backToHome {
   text-decoration: none;
   color: black;
+}
+
+.loginOut {
+  text-align: center;
+  padding: 1em;
 }
 
 /*Forms*/

@@ -16,10 +16,11 @@
             <a class="active" href="index.php">Home</a>
             <a href="add_product_form.php">Add Product</a>
             <a href="category_list.php">Categories</a>
-            <a href="view_orders.php">Orders</a>
+            <a href="view_orders.php">View Orders</a>
+            <a href="add_order_form.php">Order Product</a>
             <a href="contact.php">Contact</a>
-            <a href="register_customer_form.php">Register</a>
-            <a href="#Login">Login</a>
-            <a href="#Logout">Logout</a>
+            <a href="register.php">Register</a>
+            <a href="login.php">Login</a>
+            <a href="logout.php">Logout</a>
         </div>
     </header>

@@ -37,13 +37,6 @@ li {
     margin: 0;
     padding: 0;
 }
-a {
-    color: rgb(41, 64, 124);
-    font-weight: bold;
-    :hover {
-        color: rgb(208, 133, 4);
-    }
-}
 table {
     border: 1px solid black;
     border-collapse: collapse;
@@ -92,7 +85,10 @@ table {
     text-decoration: none;
     color: black;
 }
-
+.loginOut{
+    text-align: center;
+    padding: 1em;
+}
 
 
 /*Forms*/

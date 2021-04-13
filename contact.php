@@ -32,6 +32,5 @@ include('includes/header.php');
 	</script>
 
     <?php
-include('includes/backToHome.php');
 include('includes/footer.php');
 ?>
