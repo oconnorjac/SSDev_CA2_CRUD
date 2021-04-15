@@ -74,37 +74,60 @@ INSERT INTO `products` (`productID`, `categoryID`, `name`, `price`, `stock`, `im
 (64, 7, 'Water Bowl', '6.99', 18, '341961.jpg', '2021-02-19 00:00:00');
 ALTER TABLE products AUTO_INCREMENT=65;
 
+--
+-- Database updates for CA3
+--
+/* users table*/
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `username` VARCHAR(25) NOT NULL,
+  `password` VARCHAR(60) NOT NULL,
+PRIMARY KEY (username));
+
+INSERT INTO `users` VALUES
+('anne123', '$2y$12$kPFXddr.QZpCefL/Z6M2.eqgHXjhA1lvOULwpyA.u969PAALYDZO2'),
+('testing9', '$2y$12$mz0R55fC9SOhzVk7R9Ebr.817VJGoxiSWybA513DW.Cw6NddAfw0a'),
+('jack123', '$2y$12$/hcPNXtrfQ97jFiBE3TaYukfiWcQVHwToWap1k24Od94VVRDQ.fzy'),
+('tom123', '$2y$12$6Gl0b9VeeYrR3Xp0VcohYOGWgCmxV/y8uXH8QPNhIGbfVZxb5qCSG'),
+('jac123', '$2y$12$7L4dHs0ky7qKDBdDH4xkyuYiK/6SjIZAKsHFv.stZgVwJQfzronG.'),
+('joe123', '$2y$12$tv1QvFXhr7sngaD/rJnIdedGBiNtjeE/pVkyKir9CGZQetYmQT8S.');
+
+-- create customers table has been edited too
+
 /*customers*/
 DROP TABLE IF EXISTS `customers`;
 CREATE TABLE `customers` (
-  `customerID` varchar(60) NOT NULL,
-  `customerName` varchar(60) DEFAULT NULL,
-  `customerAddress` varchar(60) DEFAULT NULL,
-  `customerTel` varchar(60) DEFAULT NULL,
-PRIMARY KEY (customerID));
+  `email` varchar(60) NOT NULL,
+  `username` VARCHAR(25) NOT NULL,
+  `name` varchar(60) DEFAULT NULL,
+  `address` varchar(60) DEFAULT NULL,
+  `mobile` varchar(60) DEFAULT NULL,
+PRIMARY KEY (email),
+FOREIGN KEY (username) REFERENCES users(username));
 
-INSERT INTO `customers` (`customerID`, `customerName`, `customerAddress`, `customerTel`) VALUES
-('anne@gmail.com', 'Anne', '3 New Road, Drogheda', '0419858545'),
-('jac@email.com', 'Jacqueline', '7 The Close', '0852525252'),
-('jack@gmail.com', 'Jack', '2 New Street, Dublin', '018745882'),
-('joe@gmail.com', 'Joe', '4 UpTown, Navan', '041898556'),
-('paddy@gmail.com', 'Paddy', '5 Grove Road, Dundalk', '042985855'),
-('testing9@gmail.com', 'testingg', 'testing 4 u', '0872525254'),
-('tom@gmail.com', 'Tom', '1 Old Road, Dundalk', '0429858585');
+INSERT INTO `customers` (`email`, `username`, `name`, `address`, `mobile`) VALUES
+('anne@gmail.com', 'anne123', 'Anne', '3 New Road, Drogheda', '0419858545'),
+('jac@email.com', 'jac123', 'Jacqueline', '7 The Close', '0852525252'),
+('jack@gmail.com', 'jack123', 'Jack', '2 New Street, Dublin', '018745882'),
+('joe@gmail.com', 'joe123', 'Joe', '4 UpTown, Navan', '041898556'),
+('testing9@gmail.com', 'testing9', 'testingg', 'testing 4 u', '0872525254'),
+('tom@gmail.com', 'tom123', 'Tom', '1 Old Road, Dundalk', '0429858585');
+
+--
 
 /*orders*/
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `orderID` int(11) NOT NULL AUTO_INCREMENT,
-  `customerID` varchar(60) DEFAULT NULL,
+  `email` varchar(60) DEFAULT NULL,
   `productID` int(11) DEFAULT NULL,
   `quantity` int(100) DEFAULT NULL,
   `dateOfOrder` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (orderID),
-FOREIGN KEY (customerID) REFERENCES customers(customerID),
+FOREIGN KEY (email) REFERENCES customers(email),
 FOREIGN KEY (productID) REFERENCES products(productID));
 
-INSERT INTO `orders` (`orderID`, `customerID`, `productID`, `quantity`, `dateOfOrder`) VALUES
+INSERT INTO `orders` (`orderID`, `email`, `productID`, `quantity`, `dateOfOrder`) VALUES
 (1001, 'anne@gmail.com', 36, 32, '2021-03-06 15:29:35'),
 (1007, 'testing9@gmail.com', 36, 32, '2021-03-07 15:31:39'),
 (1008, 'jack@gmail.com', 50, 1, '2021-03-10 16:27:31'),
@@ -112,11 +135,3 @@ INSERT INTO `orders` (`orderID`, `customerID`, `productID`, `quantity`, `dateOfO
 (1010, 'jac@email.com', 37, 8, '2021-03-10 16:00:01'),
 (1013, 'joe@gmail.com', 32, 21, '2021-03-12 11:12:42');
 ALTER TABLE orders AUTO_INCREMENT=1014;
-
-/*CA3 users table*/
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `username` varchar(25) NOT NULL,
-  `password` varchar(60) NOT NULL,
-PRIMARY KEY (id));

@@ -86,12 +86,12 @@ if (isset($_POST['register'])) {
     <h1 class="pageTitle">Register</h1>
 
     <form action="register.php" method="post" class="loginOut">
-        <label for="username">Email</label>
-        <input type="input" id="username" name="username" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required onkeypress="custid_validation();">
-        <span id="custid_message"></span>
+        <label for="username">Username</label>
+        <input type="input" id="username" name="username" pattern="[a-zA-Z0-9]{5,}$" required">
 
         <label for="password">Password</label>
         <input type="password" id="password" name="password">
+        
         <input type="submit" name="register" value="Register"></button>
     </form>
     <?php

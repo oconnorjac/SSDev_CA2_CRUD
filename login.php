@@ -80,12 +80,11 @@ if (isset($_POST['login'])) {
     <h1 class="pageTitle">Login</h1>
 
     <form action="login.php" method="post" class="loginOut">
-        <span id="custid_message"></span>
-        <label for="username">Email</label>
-        <input type="text" id="username" name="username" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" pattern="[a-zA-Z0-9]{5,}$" required>
 
         <label for="password">Password</label>
-        <input type="text" id="password" name="password">
+        <input type="password" id="password" name="password">
 
         <input type="submit" name="login" value="Login">
     </form>
