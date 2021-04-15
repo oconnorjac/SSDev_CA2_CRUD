@@ -1,8 +1,9 @@
 <!-- the head section -->
 
 <head>
-    <title>My PHP CRUD App</title>
+    <title>WackyBone</title>
     <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <script language="JavaScript" src="scripts/gen_validatorv31.js" type="text/javascript"></script>
 
     <script>

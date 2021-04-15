@@ -112,3 +112,12 @@ INSERT INTO `orders` (`orderID`, `customerID`, `productID`, `quantity`, `dateOfO
 (1010, 'jac@email.com', 37, 8, '2021-03-10 16:00:01'),
 (1013, 'joe@gmail.com', 32, 21, '2021-03-12 11:12:42');
 ALTER TABLE orders AUTO_INCREMENT=1014;
+
+/*CA3 users table*/
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` varchar(25) NOT NULL,
+  `password` varchar(60) NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (username) REFERENCES customers(customerID));

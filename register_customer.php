@@ -1,11 +1,13 @@
 <?php
 
 // Get the customer data
-$email = filter_input(INPUT_POST, 'email');
+$email = filter_input(INPUT_POST,'customerID');
 $password = filter_input(INPUT_POST, 'password');
 $name = filter_input(INPUT_POST, 'name');
 $address = filter_input(INPUT_POST, 'address');
-$telephone = filter_input(INPUT_POST, 'telephone');
+$mobile = filter_input(INPUT_POST, 'mobile');
+
+echo $email ." ". $password ." ". $name  ." ". $address ." ". $mobile; 
 
 require('database.php');
 $query1 = 'SELECT *
@@ -17,16 +19,12 @@ $customers = $statement1->fetchAll();
 $statement1->closeCursor();
 
 // Validate inputs
-if ( $email == null || $password == null || $name == null || $address == null || $telephone == null) 
+if ( $email == null || $password == null || $name == null || $address == null || $mobile == null) 
 {
     $error = "Invalid data. Check all fields and try again.";
     include('error.php');
     exit();
-} 
-//else if (!$customers->$email)
-//{
-//    $error = "Customer is not registered."
-//}
+}
 else
 {
     require_once('database.php');
@@ -36,13 +34,13 @@ else
                  (customerID, password, customerName, 
                  customerAddress, customerTel)
               VALUES
-                 (:email, :name, :address, :telephone)";
+                 (:email, :password, :name, :address, :mobile)";
     $statement = $db->prepare($query);
     $statement->bindValue(':email', $email);
     $statement->bindValue(':password', $password);
     $statement->bindValue(':name', $name);
     $statement->bindValue(':address', $address);
-    $statement->bindValue(':telephone', $telephone);
+    $statement->bindValue(':mobile', $mobile);
     $statement->execute();
     $statement->closeCursor();
 

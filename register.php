@@ -23,11 +23,8 @@ require 'login_connect.php';
 if(isset($_POST['register'])){
     
     //Retrieve the field values from our registration form.
-    $customerID = !empty($_POST['customerID']) ? trim($_POST['customerID']) : null;
-    $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
-    $name = !empty($_POST['name']) ? trim($_POST['name']) : null;
-    $address = !empty($_POST['address']) ? trim($_POST['address']) : null;
-    $mobile = !empty($_POST['mobile']) ? trim($_POST['mobile']) : null;
+    $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
+    $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
     
     //TO ADD: Error checking (username characters, password length, etc).
     //Basically, you will need to add your own error checking BEFORE
@@ -36,11 +33,11 @@ if(isset($_POST['register'])){
     //Now, we need to check if the supplied username already exists.
     
     //Construct the SQL statement and prepare it.
-    $sql = "SELECT COUNT(customerID) AS num FROM customers WHERE customerID = :customerID";
+    $sql = "SELECT COUNT(username) AS num FROM users WHERE username = :username";
     $stmt = $pdo->prepare($sql);
     
     //Bind the provided username to our prepared statement.
-    $stmt->bindValue(':customerID', $customerID);
+    $stmt->bindValue(':username', $username);
     
     //Execute.
     $stmt->execute();
@@ -57,19 +54,16 @@ if(isset($_POST['register'])){
     }
     
     //Hash the password as we do NOT want to store our passwords in plain text.
-    $passwordHash = password_hash($password, PASSWORD_BCRYPT, array("cost" => 12));
+    $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array("cost" => 12));
     
     //Prepare our INSERT statement.
     //Remember: We are inserting a new row into our users table.
-    $sql = "INSERT INTO customers (customerID, password, customerName, customerAddress, customerTel) VALUES (:customerID, :password, :name, :address, :mobile)";
+    $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
     $stmt = $pdo->prepare($sql);
     
     //Bind our variables.
-    $stmt->bindValue(':customerID', $customerID);
+    $stmt->bindValue(':username', $username);
     $stmt->bindValue(':password', $passwordHash);
-    $stmt->bindValue(':name', $name);
-    $stmt->bindValue(':address', $address);
-    $stmt->bindValue(':mobile', $mobile);
 
     //Execute the statement and insert the new account.
     $result = $stmt->execute();
@@ -83,46 +77,20 @@ if(isset($_POST['register'])){
 }
 
 ?>
-
-<div class="container">
-<?php
-include('includes/header.php');
-?>
-
-<h1 class="pageTitle">Register</h1>
-        <form action="register_customer.php" method="post" enctype="multipart/form-data"
-              id="add_product_form">
-
-            <br>
-            <label>Email:</label>
-            <input type="input" name="email" id="customerID" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required onkeypress="custid_validation();">
-            <span id="custid_message"></span>
-            <br>
-
-            <label>Name:</label>
-            <input type="input" name="name" id="name" pattern="^[a-zA-Z'-\s]{0,50}$" required onkeypress="name_validation();">
-            <span id="name_message"></span>
-            <br>   
-            
-            <label>Address:</label>
-            <input type="input" name="address" id="address" pattern="^[a-zA-Z0-9-\s,]{0,50}$" required onkeypress="address_validation()">
-            <span id="address_message"></span>
-            <br> 
-
-            <label>Mobile:</label>
-            <input type="input" name="telephone" id="mobile" pattern="[0][8][3,5-9][0-9]{7}" required onkeypress="mobileNum_valdation()">
-            <span id="mobile_message"></span>
-            <br> 
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Register</title>
+    </head>
+    <body>
+        <h1>Register</h1>
+        <form action="register.php" method="post">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username"><br>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            
-            <label>&nbsp;</label>
-            <input type="submit" name="register" value="Register">
-            <br>
+            <input type="text" id="password" name="password"><br>
+            <input type="submit" name="register" value="Register"></button>
         </form>
-
-<?php
-include('includes/footer.php');
-?>
+    </body>
+</html>

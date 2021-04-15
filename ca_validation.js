@@ -4,8 +4,8 @@ function custid_validation()
 {
     'use strict';
     var custid_format = /^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.\w{2,3})+$/;
-    var custid_name = document.getElementById("custid");
-    var custid_value = document.getElementById("custid").value;
+    var custid_name = document.getElementById("customerID");
+    var custid_value = document.getElementById("customerID").value;
     console.log(custid_value);
     var custid_length = custid_value.length;
     if (custid_length < 10 || custid_length > 60) {
@@ -72,7 +72,7 @@ function mobileNum_valdation()
 {
     'use strict';
     //var mobile_format = /\^[0][8][3,5-9][0-9]\{7\}\$/;
-    var mobile_format = /^[0-9]{10}$/;
+    var mobile_format = /^[0][8][3,5-9][0-9]{7}$/;
     var mobile_num = document.getElementById("mobile");
     var mobile_value = document.getElementById("mobile").value;
     console.log(mobile_value);
