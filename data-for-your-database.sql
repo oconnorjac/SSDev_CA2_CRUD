@@ -119,5 +119,4 @@ CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(25) NOT NULL,
   `password` varchar(60) NOT NULL,
-PRIMARY KEY (id),
-FOREIGN KEY (username) REFERENCES customers(customerID));
+PRIMARY KEY (id));
