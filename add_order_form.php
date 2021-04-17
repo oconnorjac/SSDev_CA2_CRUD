@@ -39,8 +39,8 @@ include('includes/header.php');
         <form action="add_order.php" method="post" enctype="multipart/form-data"
               id="add_product_form">
 
-            <label>Customer ID:</label>
-            <input type="input" name="customer_id" id="custid" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Customer ID" required onkeypress="custid_validation();">
+            <label>Email:</label>
+            <input type="input" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Customer Email" required onkeypress="custid_validation();">
             <span id="custid_message"></span>
             <br>   
             

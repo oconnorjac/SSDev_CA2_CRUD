@@ -42,7 +42,7 @@ $statement->closeCursor();
 <?php
 include('includes/header.php');
 ?>
-        <h1>Edit Order</h1>
+        <h1 class="pageTitle">Edit Order</h1>
         <form action="edit_order.php" method="post" enctype="multipart/form-data" id="add_product_form">
 
             <label>Order ID:</label>
@@ -50,7 +50,7 @@ include('includes/header.php');
             <br>
 
             <label>Customer ID:</label>
-            <?php echo $orders['customerID']; ?>
+            <?php echo $orders['email']; ?>
             <br>
 
             <label>Product ID:</label>
@@ -68,6 +68,5 @@ include('includes/header.php');
             <br>
         </form>
     <?php
-include('includes/backToHome.php');
 include('includes/footer.php');
 ?>

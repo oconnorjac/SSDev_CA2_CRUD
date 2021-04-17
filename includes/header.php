@@ -40,20 +40,31 @@
                 if (isset($_SESSION['logged_in'])) {
                     echo "<a class=\"active\" href=\"logout.php\">Logout</a>";
                 }
+
                 echo "<a href=\"index.php\">Home</a>";
 
-                ##if ($_SESSION['level'] > 0 ) {
-                    echo "<a href=\"add_order_form.php\">AddOrder</a>";
-                    echo "<a href=\"add_product_form.php\">AddProduct</a>";
-                    echo "<a href=\"manage_products.php\">ManageProducts</a>";
-                    echo "<a href=\"category_list.php\">EditCategories</a>";
-                    echo "<a href=\"view_orders.php\">Orders</a>";
-                ##}
+                if (isset($_SESSION['level']) && $_SESSION['level'] > 0 ) {
+                    echo "<a href=\"add_order_form.php\">Add Order</a>";
+                    echo "<a href=\"add_product_form.php\">Add Product</a>";
+                    echo "<a href=\"manage_products.php\">Manage Products</a>";
+                    echo "<a href=\"category_list.php\">Manage Categories</a>";
+                    echo "<a href=\"view_orders.php\">Manage Orders</a>";
+                }
+                
+                if(isset($_SESSION['logged_in']) && $_SESSION['level'] == 0)
+                {
+                    echo "<a href=\"edit_customer_form.php\">My Details</a>";
+                    echo "<a href=\"make_an_order.php\">Order</a>";
+                }
 
                 if (!isset($_SESSION['logged_in'])) {
                     echo "<a href=\"register.php\">Register</a>";
                 }
-                echo "<a href=\"contact.php\">Contact</a>";
+
+                if(!(isset($_SESSION['level']) && $_SESSION['level'] > 0 ))
+                {
+                    echo "<a href=\"contact.php\">Contact</a>";
+                }
                 ?>
             </div>
         </nav>

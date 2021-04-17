@@ -14,13 +14,6 @@ if(!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])){
     exit;
 }
 
-
-/**
- * Print out something that only logged in users can see.
- */
-
-echo 'Congratulations! You are logged in!';
-
 require('database.php');
 
 $product_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
@@ -48,7 +41,7 @@ $statement2->closeCursor();
 <?php
 include('includes/header.php');
 ?>
-        <h1>Edit Product</h1>
+        <h1 class="pageTitle">Edit Product</h1>
         <form action="edit_product.php" method="post" enctype="multipart/form-data"
               id="add_product_form">
             <input type="hidden" name="original_image" value="<?php echo $products['image']; ?>" />
@@ -93,9 +86,9 @@ include('includes/header.php');
             
             <label>&nbsp;</label>
             <input type="submit" value="Save Changes">
+            <a class="fakeButton" href="manage_products.php">Cancel</a>
             <br>
         </form>
     <?php
-include('includes/backToHome.php');
 include('includes/footer.php');
 ?>
