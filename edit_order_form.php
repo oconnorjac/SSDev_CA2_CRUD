@@ -14,13 +14,6 @@ if(!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])){
     exit;
 }
 
-
-/**
- * Print out something that only logged in users can see.
- */
-
-//echo 'Congratulations! You are logged in!';
-
 require('database.php');
 
 $order_id = filter_input(INPUT_POST, 'order_id', FILTER_VALIDATE_INT);

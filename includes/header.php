@@ -54,7 +54,7 @@
                 if(isset($_SESSION['logged_in']) && $_SESSION['level'] == 0)
                 {
                     echo "<a href=\"edit_customer_form.php\">My Details</a>";
-                    echo "<a href=\"make_an_order.php\">Order</a>";
+                    echo "<a href=\"reserve_product_form.php\">Reserve Product</a>";
                 }
 
                 if (!isset($_SESSION['logged_in'])) {

@@ -28,7 +28,7 @@ There are various options to add product, add/remove categories, register custom
 You can also delete products and edit them. 
 ***
 
-#### See the project running on a remote server [WackyBone](https://mysql04.comp.dkit.ie/D00233669//ServerSideDev_CA2_CRUDApp_PetShop/index.php "Wacky Bone")
+#### See the project running on a remote server [WackyBone](https://mysql04.comp.dkit.ie/D00233669/CA3/SSDev_CA2_CRUD/index.php "Wacky Bone")
 
 ##### Heres the logo: 
 ![alt text](https://github.com/oconnorjac/SSDev_CA2_CRUD/blob/main/images/paw.png "Black paw print logo")

@@ -60,20 +60,17 @@ include('includes/header.php');
             <br>
 
             <label>Name:</label>
-            <input type="input" name="name" pattern="^[a-zA-Z0-9-\s\&]{0,50}$" required onkeypress="name_validation();"
-                   value="<?php echo $products['name']; ?>">
+            <input type="input" name="name" pattern="^[a-zA-Z0-9-\s\&]{0,50}$" required onkeypress="name_validation();" value="<?php echo $products['name']; ?>">
             <span id="name_message"></span>       
             <br>
 
             <label>Price:</label>
-            <input type="input" name="price" min=1 pattern="[0-9]*[.]?[0-9]+" required onkeypress="price_valdation();"
-                   value="<?php echo $products['price']; ?>">
+            <input type="input" name="price" min=1 pattern="[0-9]*[.]?[0-9]+" required onkeypress="price_valdation();" value="<?php echo $products['price']; ?>">
             <span id="price_message"></span>       
             <br>
 
             <label>Stock:</label>
-            <input type="number" min=0 name="stock" min=0 required onkeypress="number_valdation();"
-                   value="<?php echo $products['stock']; ?>">
+            <input type="number" min=0 name="stock" min=0 required onkeypress="number_valdation();" value="<?php echo $products['stock']; ?>">
             <span id="num_message"></span>       
             <br>
 

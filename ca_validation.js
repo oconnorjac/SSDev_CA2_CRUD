@@ -66,8 +66,8 @@ function password_validation(){
     var password_format = /\^[a-zA-Z0-9]\{8\,}\$/;
     var password_value = document.getElementById("password").value;
     var password_length = password_value.length;
-    if (password_length < 8 || username_length > 15) {
-        document.getElementById('password_message').innerHTML = 'Password must not be less than 8 characters or greater than 15 characters';
+    if (password_length < 8) {
+        document.getElementById('password_message').innerHTML = 'Password must not be less than 8 characters';
         password_name.focus();
         document.getElementById('password_message').style.color = "#FF0000";
     }
