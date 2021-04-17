@@ -85,12 +85,18 @@ if (isset($_POST['login'])) {
 
     <h1 class="pageTitle">Login</h1>
 
-    <form action="login.php" method="post" class="loginOut">
+    <form class"loginRegInputs" action="login.php" method="post" class="loginOut">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" pattern="[a-zA-Z0-9]{5,}$" required>
+        <input type="text" id="username" name="username" pattern="[a-zA-Z0-9]{5,}$" required onkeypress="username_validation();">
+        <br>
+        <span id="username_message"></span>
+        <br><br>
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" name="password" required onkeypress="password_validation();">
+        <br>
+        <span id="password_message"></span>
+        <br><br>
 
         <input type="submit" name="login" value="Login">
     </form>

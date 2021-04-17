@@ -60,6 +60,28 @@ function username_validation(){
     }
 }
 
+function password_validation(){
+    'use strict';
+    var password = document.getElementById("password");
+    var password_format = /\^[a-zA-Z0-9]\{8\,}\$/;
+    var password_value = document.getElementById("password").value;
+    var password_length = password_value.length;
+    if (password_length < 8 || username_length > 15) {
+        document.getElementById('password_message').innerHTML = 'Password must not be less than 8 characters or greater than 15 characters';
+        password_name.focus();
+        document.getElementById('password_message').style.color = "#FF0000";
+    }
+    else {
+        document.getElementById('password_message').innerHTML = '&#10003';
+        document.getElementById('password_message').style.color = "#00AF33";
+    }
+    /*if (!password_value.match(password_format)) {
+        document.getElementById('password_message').innerHTML = 'Password must contain uppercase, lowercase and a number.';
+        password.focus();
+        document.getElementById('password_message').style.color = "#FF0000";
+    }*/
+}
+
 function address_validation()
 {
     'use strict';

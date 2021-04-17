@@ -94,13 +94,20 @@ if (isset($_POST['register'])) {
     ?>
 
     <h1 class="pageTitle">Register</h1>
+    <span id="password_message"></span>
 
     <form action="register.php" method="post" class="loginOut">
         <label for="username">Username</label>
-        <input type="input" id="username" name="username" pattern="[a-zA-Z0-9]{5,}$" required">
+        <input type="input" id="username" name="username" pattern="[a-zA-Z0-9]{5,}$" required onkeypress="username_validation();">
+        <br>
+        <span id="username_message"></span>
+        <br><br>
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" name="password" required onkeypress="password_validation();">
+        <br>
+        <span id="password_message"></span>
+        <br><br>
         
         <input type="submit" name="register" value="Register"></button>
     </form>
