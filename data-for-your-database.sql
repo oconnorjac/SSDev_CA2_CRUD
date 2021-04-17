@@ -82,15 +82,17 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `username` VARCHAR(25) NOT NULL,
   `password` VARCHAR(60) NOT NULL,
+  `accessLevel` INT DEFAULT 0,
 PRIMARY KEY (username));
 
-INSERT INTO `users` VALUES
-('anne123', '$2y$12$kPFXddr.QZpCefL/Z6M2.eqgHXjhA1lvOULwpyA.u969PAALYDZO2'),
-('testing9', '$2y$12$mz0R55fC9SOhzVk7R9Ebr.817VJGoxiSWybA513DW.Cw6NddAfw0a'),
-('jack123', '$2y$12$/hcPNXtrfQ97jFiBE3TaYukfiWcQVHwToWap1k24Od94VVRDQ.fzy'),
-('tom123', '$2y$12$6Gl0b9VeeYrR3Xp0VcohYOGWgCmxV/y8uXH8QPNhIGbfVZxb5qCSG'),
-('jac123', '$2y$12$7L4dHs0ky7qKDBdDH4xkyuYiK/6SjIZAKsHFv.stZgVwJQfzronG.'),
-('joe123', '$2y$12$tv1QvFXhr7sngaD/rJnIdedGBiNtjeE/pVkyKir9CGZQetYmQT8S.');
+INSERT INTO `users` (`username`, `password`, `accessLevel`) VALUES
+('Admin123', '$2y$12$SKXTJm5I/7rXJ64wk8i2k.8zpnrSypOVd1CW.uyZZVZPGgh7T7WE.',1),
+('Anne123', '$2y$12$feb.hMgcCucLmGYjHEgvRuarr548gvzmOZGJKW9d2P94hGQdThqLS', 0),
+('Jac123', '$2y$12$W3Uyk4ncMKNOM88AfVqm6.aobIOqvfW.ozOzFUa2qZAKIL.qAp0ui', 0),
+('Jack123', '$2y$12$9X/Te8yLCgrtGv91.kqpnOlu2DZ1O7j6Q6qGHZuwypjkwt2kSg93O', 0),
+('Joe123', '$2y$12$H3jIWjVJibrOVz3uZHKGWeLtI/M5qHpwRXV0a.wx/pCJGbEA3x/a.', 0),
+('Testing9', '$2y$12$edg7m35q2cKTUvQd9iJKXu3czz.8HndYDzwZa6f9M.pQml2Il4qRi', 0),
+('Tom123', '$2y$12$owTAVc1HQwJfh0bqCboUTO1TgnkKRkE5Zf/oAVCP6OA0ws.wPlsmS', 0);
 
 -- create customers table has been edited too
 
@@ -106,12 +108,12 @@ PRIMARY KEY (email),
 FOREIGN KEY (username) REFERENCES users(username));
 
 INSERT INTO `customers` (`email`, `username`, `name`, `address`, `mobile`) VALUES
-('anne@gmail.com', 'anne123', 'Anne', '3 New Road, Drogheda', '0419858545'),
-('jac@email.com', 'jac123', 'Jacqueline', '7 The Close', '0852525252'),
-('jack@gmail.com', 'jack123', 'Jack', '2 New Street, Dublin', '018745882'),
-('joe@gmail.com', 'joe123', 'Joe', '4 UpTown, Navan', '041898556'),
-('testing9@gmail.com', 'testing9', 'testingg', 'testing 4 u', '0872525254'),
-('tom@gmail.com', 'tom123', 'Tom', '1 Old Road, Dundalk', '0429858585');
+('anne@gmail.com', 'Anne123', 'Anne', '3 New Road, Drogheda', '0419858545'),
+('jac@email.com', 'Jac123', 'Jacqueline', '7 The Close', '0852525252'),
+('jack@gmail.com', 'Jack123', 'Jack', '2 New Street, Dublin', '018745882'),
+('joe@gmail.com', 'Joe123', 'Joe', '4 UpTown, Navan', '041898556'),
+('testing9@gmail.com', 'Testing9', 'testingg', 'testing 4 u', '0872525254'),
+('tom@gmail.com', 'Tom123', 'Tom', '1 Old Road, Dundalk', '0429858585');
 
 --
 

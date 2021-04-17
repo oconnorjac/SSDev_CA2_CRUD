@@ -50,7 +50,8 @@ if (isset($_POST['register'])) {
     //I'm just going to kill the script completely, as error handling is outside
     //the scope of this tutorial.
     if ($row['num'] > 0) {
-        die('That username already exists!');
+        ##die('That username already exists!');
+        
     }
 
     //Hash the password as we do NOT want to store our passwords in plain text.
@@ -67,6 +68,15 @@ if (isset($_POST['register'])) {
 
     //Execute the statement and insert the new account.
     $result = $stmt->execute();
+
+    /*TODO Add to the customers table too*/ 
+    /*$sql2 = "INSERT INTO customers (email, username) 
+            VALUES (CONCAT(:username,'@email.com'), :username)";
+    $stmt2 = $pdo->prepare($sql2);
+    $stmt2->bindValue(':username', $username);
+    $update = $stmt2->execute();*/
+
+
 
     //If the signup process is successful.
     if ($result) {

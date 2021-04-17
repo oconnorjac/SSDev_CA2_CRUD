@@ -28,7 +28,7 @@ if (isset($_POST['login'])) {
     $passwordAttempt = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
     //Retrieve the user account information for the given username.
-    $sql = "SELECT username, password FROM users WHERE username = :username";
+    $sql = "SELECT username, password, accessLevel FROM users WHERE username = :username";
     $stmt = $pdo->prepare($sql);
 
     //Bind value.
@@ -44,7 +44,10 @@ if (isset($_POST['login'])) {
     if ($user === false) {
         //Could not find a user with that username!
         //PS: You might want to handle this error in a more user-friendly manner!
-        die('Incorrect username / password combination!');
+        ##die('Incorrect username!');
+        header('Location: login_error.php');
+        exit;
+
     } else {
         //User account found. Check to see if the given password matches the
         //password hash that we stored in our users table.
@@ -57,6 +60,7 @@ if (isset($_POST['login'])) {
 
             //Provide the user with a login session.
             $_SESSION['user_id'] = $user['username'];
+            $_SESSION['level'] = $user['accessLevel'];
             $_SESSION['logged_in'] = time();
 
             //Redirect to our protected page, which we called home.php
@@ -64,7 +68,9 @@ if (isset($_POST['login'])) {
             exit;
         } else {
             //$validPassword was FALSE. Passwords do not match.
-            die('Incorrect username / password combination!');
+            ##die('Incorrect password!');
+            header('Location: login_error.php');
+            exit;
         }
     }
 }

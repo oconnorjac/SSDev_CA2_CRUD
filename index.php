@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Start the session.
  */
@@ -86,7 +87,6 @@ $statement3->closeCursor();
                 <th>Price</th>
                 <th>Stock</th>
                 <th>DateAdded</th>
-                <th>Buy</th>
             </tr>
             <?php foreach ($products as $product) : ?>
                 <tr>
@@ -95,13 +95,13 @@ $statement3->closeCursor();
                     <td><?php echo $product['price']; ?></td>
                     <td><?php echo $product['stock']; ?></td>
                     <td><?php echo $product['dateAdded']; ?></td>
-                    <td>
+                    <!-- <td>
                         <form action="buy_product.php" method="post" id="delete_product_form">
                             <input type="hidden" name="product_id" value="<?php echo $product['productID']; ?>">
                             <input type="hidden" name="category_id" value="<?php echo $product['categoryID']; ?>">
                             <input type="checkbox" value="checkbox">
                         </form>
-                    </td>
+                    </td> -->
                 </tr>
             <?php endforeach; ?>
         </table>
