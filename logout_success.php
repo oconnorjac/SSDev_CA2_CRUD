@@ -1,3 +1,9 @@
+<?php
+
+$message = "";
+
+?>
+
 <div class="container">
         <?php
         include('includes/header.php');

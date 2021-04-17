@@ -1,9 +1,8 @@
 <!-- the head section -->
-
 <head>
     <title>WackyBone</title>
     <link rel="stylesheet" type="text/css" href="css/mystyle.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <script language="JavaScript" src="scripts/gen_validatorv31.js" type="text/javascript"></script>
 
     <script>
@@ -25,20 +24,35 @@
 
 <body>
     <header>
-        <h1><a href="index.php">WackyBone<img src=".\images\paw.png" alt="paw logo" width="100" height="100"></a></h1>
+        <h1><a href="index.php">WackyBone<img src=".\images\paw.png" alt="paw logo" width="100" height="100"></a></h1>    
 
         <nav>
             <div class="topnav">
-                <a href="index.php">Home</a>
-                <a href="add_product_form.php">AddProduct</a>
-                <a href="manage_products.php">ManageProducts</a>
-                <a href="category_list.php">EditCategories</a>
-                <a href="view_orders.php">ViewOrders</a>
-                <a href="add_order_form.php">OrderProduct</a>
-                <a href="contact.php">Contact</a>
-                <a href="register.php">Register</a>
-                <a href="login.php">Login</a>
-                <a href="logout.php">Logout</a>
+            <?php
+                echo "<a href=\"index.php\">Home</a>";
+                echo "<a href=\"add_order_form.php\">OrderProduct</a>";
+                echo "<a href=\"contact.php\">Contact</a>";
+                echo "<a href=\"add_product_form.php\">AddProduct</a>";
+                echo "<a href=\"manage_products.php\">ManageProducts</a>";
+                echo "<a href=\"category_list.php\">EditCategories</a>";
+                echo "<a href=\"view_orders.php\">ViewOrders</a>";
+                echo "<a href=\"register.php\">Register</a>";
+                    if(isset($_SESSION['logged_in']))
+                    {
+                        $message = "Logged in as " . $_SESSION['user_id'];
+                    }
+                    else{
+                        $message = "";
+                        echo "<a href=\"login.php\">Login</a>";
+                    }
+                    if(isset($_SESSION['logged_in']))
+                    {
+                        echo "<a href=\"logout.php\">Logout</a>";
+                    }
+                ?>
             </div>
         </nav>
+        <?php
+            echo "<span> $message </span>";
+        ?>
     </header>
