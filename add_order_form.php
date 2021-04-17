@@ -19,7 +19,7 @@ if(!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])){
  * Print out something that only logged in users can see.
  */
 
-echo 'Congratulations! You are logged in!';
+//echo 'Congratulations! You are logged in!';
 
 require('database.php');
 $query = 'SELECT *
@@ -39,7 +39,6 @@ include('includes/header.php');
         <form action="add_order.php" method="post" enctype="multipart/form-data"
               id="add_product_form">
 
-            <br>You must be registered and logged in before placing an order<br><br>
             <label>Customer ID:</label>
             <input type="input" name="customer_id" id="custid" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Customer ID" required onkeypress="custid_validation();">
             <span id="custid_message"></span>

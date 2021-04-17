@@ -19,7 +19,7 @@ if(!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])){
  * Print out something that only logged in users can see.
  */
 
-echo 'Congratulations! You are logged in!';
+//echo 'Congratulations! You are logged in!';
 
 require_once('database.php');
 
@@ -51,7 +51,7 @@ $statement2->closeCursor();
         <table class="cat_table">
             <tr>
                 <th>Order ID</th>
-                <th>Customer</th>
+                <th>Customer Email</th>
                 <th>Product</th>
                 <th>Quantity</th>
                 <th>Order Date</th>
@@ -61,7 +61,7 @@ $statement2->closeCursor();
             <?php foreach ($orders as $order) : ?>
                 <tr>
                     <td><?php echo $order['orderID']; ?></td>
-                    <td><?php echo $order['customerID']; ?></td>
+                    <td><?php echo $order['email']; ?></td>
                     <td><?php echo $order['productID']; ?></td>
                     <td><?php echo $order['quantity']; ?></td>
                     <td><?php echo $order['dateOfOrder']; ?></td>

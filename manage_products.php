@@ -8,7 +8,7 @@ session_start();
 /**
  * Check if the user is logged in.
  */
-if(!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])){
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])) {
     //User not logged in. Redirect them back to the login.php page.
     header('Location: login.php');
     exit;
@@ -19,7 +19,7 @@ if(!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])){
  * Print out something that only logged in users can see.
  */
 
-echo 'Congratulations! You are logged in!';
+//echo 'Congratulations! You are logged in!';
 
 require_once('database.php');
 
@@ -74,7 +74,7 @@ $statement3->closeCursor();
                 <li>Browse By Category</li>
                 <ul>
                     <?php foreach ($categories as $category) : ?>
-                        <li><a href=".?category_id=<?php echo $category['categoryID']; ?>">
+                        <li><a href="?category_id=<?php echo $category['categoryID']; ?>">
                                 <?php echo $category['categoryName']; ?>
                             </a>
                         </li>

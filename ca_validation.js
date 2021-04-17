@@ -1,5 +1,7 @@
 //import _variables from 'css/_variables.scss';
 
+const { func } = require("prop-types");
+
 function custid_validation()
 {
     'use strict';
@@ -24,8 +26,6 @@ function custid_validation()
     }
 }
 
-
-
 function name_validation() {
     'use strict';
     var custName_name = document.getElementById("name");
@@ -40,6 +40,23 @@ function name_validation() {
     else {
         document.getElementById('name_message').innerHTML = '&#10003';
         document.getElementById('name_message').style.color = "#00AF33";
+    }
+}
+
+function username_validation(){
+    'use strict';
+    var username = document.getElementById("username");
+    var username_value = document.getElementById("username").value;
+    console.log(username_value);
+    var username_length = username_value.length;
+    if (username_length < 7 || username_length > 30) {
+        document.getElementById('username_message').innerHTML = 'Username must not be less than 7 characters or greater than 30 characters';
+        username_name.focus();
+        document.getElementById('username_message').style.color = "#FF0000";
+    }
+    else {
+        document.getElementById('username_message').innerHTML = '&#10003';
+        document.getElementById('username_message').style.color = "#00AF33";
     }
 }
 
