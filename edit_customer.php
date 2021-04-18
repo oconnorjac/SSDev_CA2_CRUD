@@ -2,6 +2,7 @@
 
 // Get the product data
 $email = filter_input(INPUT_POST, 'email');
+$usermame = filter_input(INPUT_POST, 'username');
 $name = filter_input(INPUT_POST, 'name');
 $address = filter_input(INPUT_POST, 'address');
 $mobile = filter_input(INPUT_POST, 'mobile');

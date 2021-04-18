@@ -51,6 +51,8 @@ if (isset($_POST['register'])) {
     //the scope of this tutorial.
     if ($row['num'] > 0) {
         ##die('That username already exists!');
+        include('register_duplicate.php');
+        exit();
         
     }
 
@@ -94,7 +96,6 @@ if (isset($_POST['register'])) {
     ?>
 
     <h1 class="pageTitle">Register</h1>
-    <span id="password_message"></span>
 
     <form action="register.php" method="post" class="loginOut">
         <label for="username">Username</label>

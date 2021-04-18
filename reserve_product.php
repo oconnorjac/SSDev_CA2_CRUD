@@ -1,5 +1,5 @@
 <?php
-session_start();
+##session_start();
 // Get the order data
 $name = filter_input(INPUT_POST, 'name');
 $quantity = filter_input(INPUT_POST, 'quantity', FILTER_VALIDATE_INT);
@@ -40,5 +40,7 @@ if ($name == null || $quantity== null || $quantity == false ) {
     $statement->closeCursor();
 
     // Display the Product List page
-    include('view_orders.php');
+    ##include('view_orders.php');
+    echo "TODO";
+    include('index.php');
 }
