@@ -7,6 +7,5 @@ include('includes/header.php');
 Thank you for submitting the form. We will contact you soon!
 
 <?php
-include('includes/backToHome.php');
 include('includes/footer.php');
 ?>
